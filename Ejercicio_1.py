@@ -54,8 +54,8 @@ ic = flopy.mf6.ModflowGwfic(gwf, pname="ic", strt=start)
 
 
 #Controla el flujo entre celdas
-k=np.ones([10,N,N])                      #PONE LA PERMEABILIDAD COMO UNA MATRIZ
-k[1,:,:]=5e-3                            #LE ASIGNA UN VALOR DE K A UNA CAPA
+#k=np.ones([10,N,N])                      #PONE LA PERMEABILIDAD COMO UNA MATRIZ
+#k[1,:,:]=5e-3                            #LE ASIGNA UN VALOR DE K A UNA CAPA
 npf = flopy.mf6.ModflowGwfnpf(gwf, icelltype=1, k=k, save_flows=True)
 
 
@@ -132,6 +132,8 @@ fig = plt.figure(figsize=(5, 2.5))
 ax = fig.add_subplot(1, 1, 1, aspect="auto")
 c = ax.contour(x, z, h[:, 50, :], np.arange(90, 100.1, 0.2), colors="black")
 plt.clabel(c, fmt="%1.1f")
+
+
 
 
 
